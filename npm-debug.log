@@ -1,0 +1,111 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'fluxi',
+1 verbose cli   '--save' ]
+2 info using npm@4.1.2
+3 info using node@v7.7.1
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData fluxi
+8 silly fetchNamedPackageData fluxi
+9 silly mapToRegistry name fluxi
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'fluxi',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'fluxi',
+12 silly mapToRegistry   name: 'fluxi',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/fluxi
+14 verbose request uri https://registry.npmjs.org/fluxi
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 6:11:00 PM
+17 verbose request using bearer token for auth
+18 verbose request id 97569741899320d1
+19 verbose etag W/"59b7d3e3-793"
+20 verbose lastModified Tue, 12 Sep 2017 12:32:35 GMT
+21 http request GET https://registry.npmjs.org/fluxi
+22 http 304 https://registry.npmjs.org/fluxi
+23 verbose headers { server: 'nginx/1.10.3',
+23 verbose headers   'last-modified': 'Tue, 12 Sep 2017 12:32:35 GMT',
+23 verbose headers   etag: '"59b7d3e3-793"',
+23 verbose headers   'cache-control': 'max-age=300',
+23 verbose headers   'accept-ranges': 'bytes',
+23 verbose headers   date: 'Tue, 12 Sep 2017 12:42:09 GMT',
+23 verbose headers   via: '1.1 varnish',
+23 verbose headers   connection: 'keep-alive',
+23 verbose headers   'x-served-by': 'cache-sin18033-SIN',
+23 verbose headers   'x-cache': 'MISS',
+23 verbose headers   'x-cache-hits': '0',
+23 verbose headers   'x-timer': 'S1505220129.310474,VS0,VE204',
+23 verbose headers   vary: 'Accept-Encoding, Accept' }
+24 silly get cb [ 304,
+24 silly get   { server: 'nginx/1.10.3',
+24 silly get     'last-modified': 'Tue, 12 Sep 2017 12:32:35 GMT',
+24 silly get     etag: '"59b7d3e3-793"',
+24 silly get     'cache-control': 'max-age=300',
+24 silly get     'accept-ranges': 'bytes',
+24 silly get     date: 'Tue, 12 Sep 2017 12:42:09 GMT',
+24 silly get     via: '1.1 varnish',
+24 silly get     connection: 'keep-alive',
+24 silly get     'x-served-by': 'cache-sin18033-SIN',
+24 silly get     'x-cache': 'MISS',
+24 silly get     'x-cache-hits': '0',
+24 silly get     'x-timer': 'S1505220129.310474,VS0,VE204',
+24 silly get     vary: 'Accept-Encoding, Accept' } ]
+25 verbose etag https://registry.npmjs.org/fluxi from cache
+26 verbose get saving fluxi to /home/tringapps-admin/.npm/registry.npmjs.org/fluxi/.cache.json
+27 verbose correctMkdir /home/tringapps-admin/.npm correctMkdir not in flight; initializing
+28 silly install normalizeTree
+29 silly loadCurrentTree Finishing
+30 silly loadIdealTree Starting
+31 silly install loadIdealTree
+32 silly cloneCurrentTree Starting
+33 silly install cloneCurrentTreeToIdealTree
+34 silly cloneCurrentTree Finishing
+35 silly loadShrinkwrap Starting
+36 silly install loadShrinkwrap
+37 silly loadShrinkwrap Finishing
+38 silly loadAllDepsIntoIdealTree Starting
+39 silly install loadAllDepsIntoIdealTree
+40 silly rollbackFailedOptional Starting
+41 silly rollbackFailedOptional Finishing
+42 silly runTopLevelLifecycles Finishing
+43 silly install printInstalled
+44 verbose stack Error: Refusing to install package with name "fluxi" under a package
+44 verbose stack also called "fluxi". Did you name your project the same
+44 verbose stack as the dependency you're installing?
+44 verbose stack
+44 verbose stack For more information, see:
+44 verbose stack     <https://docs.npmjs.com/cli/install#limitations-of-npms-install-algorithm>
+44 verbose stack     at checkSelf (/usr/local/lib/node_modules/npm/lib/install/validate-args.js:53:14)
+44 verbose stack     at Array.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+44 verbose stack     at LOOP (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+44 verbose stack     at chain (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+44 verbose stack     at /usr/local/lib/node_modules/npm/lib/install/validate-args.js:16:5
+44 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:52:35
+44 verbose stack     at Array.forEach (native)
+44 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:52:11
+44 verbose stack     at Array.forEach (native)
+44 verbose stack     at asyncMap (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:51:8)
+45 verbose cwd /home/tringapps-admin/node_space/ground/fluxi
+46 error Linux 4.4.0-93-generic
+47 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "fluxi" "--save"
+48 error node v7.7.1
+49 error npm  v4.1.2
+50 error code ENOSELF
+51 error Refusing to install package with name "fluxi" under a package
+51 error also called "fluxi". Did you name your project the same
+51 error as the dependency you're installing?
+51 error
+51 error For more information, see:
+51 error     <https://docs.npmjs.com/cli/install#limitations-of-npms-install-algorithm>
+52 error If you need help, you may report this error at:
+52 error     <https://github.com/npm/npm/issues>
+53 verbose exit [ 1, true ]
