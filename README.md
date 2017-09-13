@@ -2,7 +2,7 @@
 
 A functional library which aids in building apps in functional paradigm
 
-## How to use
+## How to install?
 
 ```
 $ npm install fluxi
@@ -11,12 +11,12 @@ $ npm install fluxi
 
 ## Features
 
- Working: 
+ # How it works?
  
 It returns a function that makes call to the functions sequentially in the order of arguments and the return value of each function will become as argument for the forthcoming function.
 
 
- Usage: 
+ # How to use?
  
  ```
  let pipeN = fluxi.pipeN;
@@ -43,10 +43,12 @@ It returns a function that makes call to the functions sequentially in the order
 ```
 
 
- Working: 
+ # How it works?
  
 Asynchronous pipe will works exacly as you think
          that this will wait for each action to get completed
+         
+ # How to use?
  ```
  let syncPipeN = fluxi.pipeN;
  let delay = fluxi.delay;
