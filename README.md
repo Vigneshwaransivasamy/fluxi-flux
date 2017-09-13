@@ -11,9 +11,15 @@ $ npm install fluxi
 
 ## Features
 
- Usage: Pipe which just builds multiple
-          functions to one and wait for command
+ Working: 
+ 
+It returns a function that makes call to the functions sequentially in the order of arguments and the return value of each function will become as argument for the forthcoming function.
+
+
+ Usage: 
+ 
  ```
+ let pipeN = fluxi.pipeN;
  let addOne = x => x+1;
  let addTwo = x => x+2;
  let addThree = x => x+3;
@@ -37,15 +43,18 @@ $ npm install fluxi
 ```
 
 
- Usage: Asynchronous pipe will works exacly as you think
+ Working: 
+ 
+Asynchronous pipe will works exacly as you think
          that this will wait for each action to get completed
  ```
+ let syncPipeN = fluxi.pipeN;
  let delay = fluxi.delay;
  let delay500 = delay(500);
  let delay2000 = delay(2000);
  let delay5000 = delay(5000);
  
- let joinActions = syncPipe2(delay500, delay2000, delay5000);
+ let joinActions = syncPipeN(delay500, delay2000, delay5000);
  
  // Now we have a function that will do the functionality
  // of the combination and waits for each actions to get completed
