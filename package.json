@@ -4,7 +4,7 @@
   "description": "A functional library which aids in building apps in functional paradigm",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/Vigneshwaransivasamy/fluxi/issues"
   },
-  "homepage": "https://github.com/Vigneshwaransivasamy/fluxi#readme"
+  "homepage": "https://github.com/Vigneshwaransivasamy/fluxi#readme",
+  "devDependencies": {
+    "chat": "^0.6.0",
+    "mocha": "^3.5.3"
+  }
 }

@@ -9,6 +9,8 @@
  */
 
 
+import * as core from './core';
+
 var pObject = Object.prototype,
     pArray = Array.prototype,
     pString = String.prototype,
