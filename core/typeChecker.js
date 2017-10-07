@@ -36,6 +36,7 @@ var is = function(type){
   };
 
 module.exports = {
+  is: is,
   isArray: is(Array),
   isBoolean: is(Boolean),
   isDate: _isDate,

@@ -1,22 +1,8 @@
-var randomToken = function(length) {
-    var hash = "";
-    var grammer = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-";
+const is = require('./typeChecker').is;
+const randomToken = require('./randomToken');
 
-    for (var offset = 0; offset < length; offset++)
-        hash += grammer.charAt(Math.floor(Math.random() * grammer.length));
-
-    return hash;
-};
 var hash32 = () => randomToken(32);
-var is = function(type){
-    return function(target){
-        return Object(target) instanceof type;
-    };
-};
 
-var _isObject = function (target) {
-    return toString.call(target) === '[object Object]';
-};
 module.exports = function proxr(data){
     const subscribers = new Map();
     let _handler = {
