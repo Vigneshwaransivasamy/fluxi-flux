@@ -12,9 +12,10 @@
  * @return Promise
  */
 
-const pipe2 = require('./pipe2');
 
-module.exports = function pipeN() {
+import pipe2 from './pipe2.mjs';
+
+export default function pipeN() {
   var isAsync;
   if (isBoolean(arguments[0])) {
       isAsync = arguments[0];

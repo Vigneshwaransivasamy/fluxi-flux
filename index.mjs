@@ -9,9 +9,11 @@
  */
 
 
-const fluxi = require('./core');
+import fluxi from './core/index.mjs';
 /**
  * Wrapped or Facaded methods which is going public
  */
 
-module.exports = fluxi;
+export default fluxi;
+
+console.log(fluxi);

@@ -1,5 +1,5 @@
-const pipeN = require('./pipeN');
-module.exports = function syncPipeN() {
+import pipeN from './pipeN.mjs';
+export default function syncPipeN() {
   Array.prototype.unshift.call(arguments, false);
   return pipeN.apply(this, arguments);
 };

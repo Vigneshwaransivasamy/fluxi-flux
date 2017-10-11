@@ -1,9 +1,9 @@
-const is = require('./typeChecker').is;
-const randomToken = require('./randomToken');
+import is from './typeChecker.mjs';
+import randomToken from './randomToken.mjs';
 
 var hash32 = () => randomToken(32);
 
-module.exports = function proxr(data){
+export default function proxr(data){
     const subscribers = new Map();
     let _handler = {
       get(target, key) {

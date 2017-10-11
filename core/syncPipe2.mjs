@@ -18,7 +18,7 @@
  * @return Promise
  */
 
-module.exports = function syncPipe2(fn1, fn2) {
+export default function syncPipe2(fn1, fn2) {
   return function () {
       return new Promise((resolve, reject) => {
           fn1.apply(this, arguments).then(

@@ -1,4 +1,4 @@
-module.exports  = function randomToken(length) {
+export default function randomToken(length) {
   var hash = "";
   var language = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-";
 

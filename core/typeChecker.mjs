@@ -3,7 +3,9 @@
  */
 var pString = Object.prototype.toString;
 
-export const is = type => target => Object(target) instanceof type;
+const is = type => target => Object(target) instanceof type;
+
+export default is;
 
 export const isObject = target => toString.call(target) === '[object Object]';
 
