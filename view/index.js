@@ -1,6 +1,6 @@
-var typer = require('../../core/type-checker');
+import {isArray, isString, isNull, isNumber, isUndefined} from '../core/typeChecker';
 
-module.exports = function Binder(Component) {
+function Binder(Component) {
     /**
      * view engine which tries to implement the same sytax
      * of mustache.js
@@ -12,8 +12,8 @@ module.exports = function Binder(Component) {
     /**
     * Useful support variables declaration goes here
     */
-    var pObject = Object.prototype;
-    var pArray = Array.prototype,
+    var pObject = Object.prototype,
+        pArray = Array.prototype,
         pString = String.prototype,
         pBoolean = Boolean.prototype,
         toString = pObject.toString,
@@ -133,6 +133,8 @@ module.exports = function Binder(Component) {
     }
     return Component;
 };
+
+export default Binder({});
 
     /**
      * Test Cases: 

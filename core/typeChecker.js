@@ -1,52 +1,32 @@
 /**
  * Legacy methods and private methods are prefixed with _(underscore).
  */
-var is = function(type){
-    return function(target){
-      return Object(target) instanceof type
-    }
-  },
+var pString = Object.prototype.toString;
 
-  _isObject = function (target) {
-    return toString.call(target) === '[object Object]';
-  },
+export const is = type => target => Object(target) instanceof type;
 
-  _isDate = function (target) {
-    return toString.call(target) === '[object Date]';
-  },
+export const isObject = target => toString.call(target) === '[object Object]';
 
-  _isPromise = function (target) {
-    return toString.call(target) === '[object Promise]';
-  },
+export const isDate = target => toString.call(target) === '[object Date]';
 
-  _isSymbol = function (target) {
-    return toString.call(target) === '[object Symbol]';
-  },
+export const isPromise = target => toString.call(target) === '[object Promise]';
 
-  _isNaN = function (target) {
-    return toString.call(target) === '[object NaN]';
-  },
+export const isSymbol = target => toString.call(target) === '[object Symbol]';
 
-  _isNull = function (target) {
-    return toString.call(target) === '[object Null]';
-  },
+export const isNaN = target => toString.call(target) === '[object NaN]';
 
-  _isUndefined = function (target) {
-    return toString.call(target) === '[object Undefined]';
-  };
+export const isNull = target => toString.call(target) === '[object Null]';
 
-module.exports = {
-  is: is,
-  isArray: is(Array),
-  isBoolean: is(Boolean),
-  isDate: _isDate,
-  isFunction: is(Function),
-  isNaN: _isNaN,
-  isNull: _isNull,
-  isNumber: is(Number),
-  isObject: _isObject,
-  isPromise: _isPromise,
-  isRegex: is(RegExp),
-  isString: is(String),
-  isSymbol: _isSymbol,
-}
+export const isUndefined = target => toString.call(target) === '[object Undefined]';
+
+export const isArray = target => is(Array)(target);
+
+export const isBoolean = target => is(Boolean)(target);
+
+export const isFunction = target => is(Function)(target);
+
+export const isNumber = target => is(Number)(target);
+
+export const isRegex = target => is(RegExp)(target);
+
+export const isString = target => is(String)(target);

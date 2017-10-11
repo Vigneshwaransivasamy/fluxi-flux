@@ -1,4 +1,4 @@
-module.exports = function curryN(fn){
+export function curryN(fn){
 	return function(){
       if(fn.length == arguments.length)  
         return fn(...arguments);
