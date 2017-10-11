@@ -1,4 +1,9 @@
 module.exports =  function arange(N){
+    /**
+     * start
+     * stop
+     * step
+     */
   if(Array.from && Array.prototype.keys){
       arange = function(N){
           return Array.from(Array(N).keys());

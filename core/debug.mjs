@@ -1,4 +1,4 @@
-module.exports = function debug(text) {
+export default function debug(text) {
   var from = arguments.callee.caller.name;
   if (window.performance) {
     var now = (window.performance.now() / 1000).toFixed(3);
