@@ -1,5 +1,8 @@
 import {isArray, isString, isNull, isNumber, isUndefined} from '../core/typeChecker';
-
+/**
+ * Decorator for Custom Component
+ * @param Component 
+ */
 function Binder(Component) {
     /**
      * view engine which tries to implement the same sytax
@@ -17,27 +20,6 @@ function Binder(Component) {
         pString = String.prototype,
         pBoolean = Boolean.prototype,
         toString = pObject.toString,
-
-        // Support function to create the new object for the property
-        _defineProperty = function (obj, key, value) {
-            if (key in obj) {
-                Object.defineProperty(obj, key, {
-                    value: value,
-                    enumerable: true,
-                    configurable: true,
-                    writable: true
-                });
-            } else {
-                obj[key] = value;
-            }
-            return obj;
-        },
-
-
-        // It checks the variable type
-        _isOfType = function (variable, type) {
-            return (typeof variable === type) ? true : false;
-        },
 
         _buildLoopingTemplate = function (tagTemplate, data, tagName) {
             var finalHTML = "";
@@ -74,7 +56,7 @@ function Binder(Component) {
             };
             return html.replace(tagRegex, tagMatchHandler);
         },
-
+        
         _getValue = function (keyMatch, data) {
 
             var name = keyMatch.trim();
