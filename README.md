@@ -2,8 +2,6 @@
 
 A functional library which aids in building apps in functional paradigm
 
-## How to install?
-
 <a href="https://nodei.co/npm/fluxi/"><img src="https://nodei.co/npm/fluxi.png"></a>
 
 
