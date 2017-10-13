@@ -4,9 +4,7 @@ A functional library which aids in building apps in functional paradigm
 
 ## How to install?
 
-```
-$ npm install fluxi
-```
+<a href="https://nodei.co/npm/fluxi/"><img src="https://nodei.co/npm/fluxi.png"></a>
 
 
 ## Features

@@ -42,6 +42,7 @@ function Binder(Component) {
 
         _expandloopingContext = function (html, data) {
             var tagRegex = /<#(:?.+?)>(.+?)<\/#\1>/g;
+            // Regex to capture tag
             var tagMatchHandler = function (tagMatch, tagName, tagTemplate) {
                 if (!data[tagName]) {
                     return "";

@@ -14,6 +14,7 @@
 
 
 import pipe2 from './pipe2.mjs';
+import {isBoolean} from './typeChecker.mjs';
 
 export default function pipeN() {
   var isAsync;
