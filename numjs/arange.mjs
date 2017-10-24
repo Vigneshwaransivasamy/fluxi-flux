@@ -16,8 +16,8 @@ function arange(start, stop, step) {
             stop: _stop,
             step: _step,
             N: Math.floor(_N) + 1
-        }
-    }
+        };
+    };
     var buildRange = (arr, start, step) => arr.map(
         x => start + x * step
     );
@@ -29,7 +29,6 @@ function arange(start, stop, step) {
             }
 
             let range = getRange(start, stop, step);
-            console.log(range);
             let result = buildRange(
                 Array.from(Array(range.N).keys()),
                 range.start,
