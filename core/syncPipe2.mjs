@@ -19,14 +19,14 @@
  */
 
 export default function syncPipe2(fn1, fn2) {
-  return function () {
-      return new Promise((resolve, reject) => {
-          fn1.apply(this, arguments).then(
-              function (data) {
-                  resolve(fn2.call(this, data));
-              }
-          );
-          return fn2;
-      });
-  }
-};
+    return function () {
+        return new Promise((resolve, reject) => {
+            fn1.apply(this, arguments).then(
+                function (data) {
+                    resolve(fn2.call(this, data));
+                }
+            ).catch(reject);
+            return fn2;
+        });
+    };
+}

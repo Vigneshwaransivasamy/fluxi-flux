@@ -25,7 +25,7 @@ function arange(start, stop, step) {
     if (Array.from && Array.prototype.keys) {
         arange = function arange(start, stop, step) {
             if (!isNumber(start)) {
-                return new Error("TypeError: Required argument 'start' (pos 1) not found");
+                return new Error('TypeError: Required argument \'start\' (pos 1) not found');
             }
 
             let range = getRange(start, stop, step);
@@ -35,11 +35,11 @@ function arange(start, stop, step) {
                 range.step
             );
             return result;
-        }
+        };
     } else {
         arange = function (start, stop, step) {
             if (!isNumber(start)) {
-                return new Error("TypeError: Required argument 'start' (pos 1) not found");
+                return new Error('TypeError: Required argument \'start\' (pos 1) not found');
             }
             let range = getRange(start, stop, step);
             let result = buildRange(
@@ -50,7 +50,7 @@ function arange(start, stop, step) {
                 range.step
             );
             return result;
-        }
+        };
     }
     return arange(start, stop, step);
 }

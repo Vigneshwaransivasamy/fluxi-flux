@@ -1,3 +1,3 @@
 export default function filler(){
-    return "__EMPTY__";
+    return '__EMPTY__';
 }
