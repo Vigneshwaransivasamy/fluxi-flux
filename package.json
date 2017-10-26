@@ -1,8 +1,8 @@
 {
   "name": "fluxi",
-  "version": "1.0.6",
+  "version": "1.1.1",
   "description": "A functional library which aids in building apps in functional paradigm",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "mocha test",
     "build:es": "cross-env BABEL_ENV=es babel source --out-dir es",
