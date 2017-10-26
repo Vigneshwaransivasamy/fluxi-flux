@@ -15,5 +15,3 @@ import fluxi from './core/index.mjs';
  */
 
 export default fluxi;
-
-console.log(fluxi);

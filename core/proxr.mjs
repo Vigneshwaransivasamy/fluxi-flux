@@ -1,55 +1,85 @@
 import is from './typeChecker.mjs';
 import randomToken from './randomToken.mjs';
+import {isObject, isString} from './typeChecker.mjs';
 
 var hash32 = () => randomToken(32);
 
-export default function proxr(data){
-    const subscribers = new Map();
-    let _handler = {
-        get(target, key) {
-            return target[key];
-        },
-        set(target, key, value) {
-            let action = 'update';
-            if(!target[key]){
-                action = 'add';
-                target[key] = _proxy(value);
-            } else {
-                target[key] = value;
-            }
-          
-            notify(
-                {
-                    'action':action, 
-                    'key':key, 
-                    'value':value
-                }
-            );
-            return target[key];
+function _proxyObjectProperty(data, subscribers) {
+    for (var key in data) {
+        if (isObject(data[key])) {
+            data[key] = proxr(data[key], subscribers);
+        } else {
+        // do nothing
         }
-    };
-    function notify(data){
-        subscribers.forEach(function(fn){
-            fn(data);
-        });
     }
-    data.subscribe = function(fn){
-        if(is(Function)(fn)){
-            let id = hash32();
-            subscribers.set(id,fn);
+    return data;
+}
+
+function __pubsub__(data, subscribers) {
+    data.subscribe = function (fn) {
+        if (is(Function)(fn)) {
+            var id = hash32();
+            subscribers.set(id, fn);
             return id;
         } else {
             return new Error('Type Error: subscriber should be of type Function');
         }
     };
 
-    data.unsubscribe = function(id){
-        if(subscribers.has(id)){
+    data.unsubscribe = function (id) {
+        if (subscribers.has(id)) {
             return subscribers.delete(id);
         } else {
             return new Error('Type Error: subscriber should be of type Function');
         }
     };
-    data = new Proxy(data, _handler);
     return data;
+}
+
+export default function proxr(data, _subscribers) {
+    var isRoot = !_subscribers;
+    var subscribers = _subscribers ? _subscribers : new Map();
+    var _handler = {
+        get: function get(target, key) {
+            return target[key];
+        },
+        set: function set(target, key, value) {
+            var action = null, oldValue = null, actionData = {};
+            if (!target[key]) {
+                action = 'NEW';
+                target[key] = isString(value) ? value : proxr(value, subscribers);
+            } else {
+                action = 'UPDATE';
+                oldValue = target[key];
+                if (oldValue == value) {
+                    // Do nothing if the value are same
+                    return;
+                }
+                target[key] = value;
+            }
+
+            actionData = {
+                'action': action,
+                'actionRoot': target,
+                'key': key,
+                'value': value
+            };
+
+            if (action == 'update') {
+                actionData.oldValue = oldValue;
+            }
+            notify(actionData);
+            return target[key];
+        }
+    };
+
+    function notify(data) {
+        subscribers.forEach(function (fn) {
+            fn(data);
+        });
+    }
+
+    data = new Proxy(_proxyObjectProperty(data, subscribers), _handler);
+
+    return isRoot ? __pubsub__(data, subscribers) : data;
 }
