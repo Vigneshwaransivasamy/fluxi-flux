@@ -1,13 +1,17 @@
 {
-  "presets": [
-    [
-      "es2015",
-      {
-        "modules": false
-      }
-    ]
-  ],
-  "plugins": [
-    "external-helpers"
-  ]
+  "env": {
+    "cjs": {
+      "plugins": [
+        "annotate-pure-calls",
+        "./scripts/transpile/esm-to-cjs",
+        "./scripts/transpile/wrap-constructor-pattern"
+      ]
+    },
+    "es": {
+      "plugins": [
+        "annotate-pure-calls",
+        "./scripts/transpile/wrap-constructor-pattern"
+      ]
+    }
+  },
 }
