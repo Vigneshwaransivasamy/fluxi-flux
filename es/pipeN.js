@@ -14,6 +14,7 @@
 
 import pipe2 from './pipe2';
 import isBoolean from './isBoolean';
+import syncPipe2 from './syncPipe2';
 
 export default function pipeN() {
     var isAsync;

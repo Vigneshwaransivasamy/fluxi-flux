@@ -16,6 +16,8 @@ var pipe2 = /*#__PURE__*/require('./pipe2');
 
 var isBoolean = /*#__PURE__*/require('./isBoolean');
 
+var syncPipe2 = /*#__PURE__*/require('./syncPipe2');
+
 function pipeN() {
     var isAsync;
     if (isBoolean(arguments[0])) {
