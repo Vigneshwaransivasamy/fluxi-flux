@@ -1,6 +1,7 @@
 import babel from 'rollup-plugin-babel';
-var uglify = require('rollup-plugin-uglify');
-var pkg = require('./package.json');
+import uglify from 'rollup-plugin-uglify';
+import pkg from './package.json';
+import {minify} from 'uglify-es';
 
 var banner = '//  Fluxi v' + pkg.version + '\n'
   + '//  https://github.com/vigneshwaransivasamy/fluxi\n'
@@ -31,7 +32,7 @@ if (process.env.NODE_ENV === 'production') {
         unsafe_comps: true,
         warnings: false
       }
-    })
+    },minify)
   );
 }
 

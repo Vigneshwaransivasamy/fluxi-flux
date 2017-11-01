@@ -3,6 +3,17 @@
     "browser": true,
     "es6": true
   },
+  "globals": {
+    "ENV": true,
+    "global": true,
+    "require": true,
+    "it": true,
+    "describe": true,
+    "module": true,
+    "process": true,
+    "export": true,
+    "console": true
+  },
   "extends": "eslint:recommended",
   "parserOptions": {
     "sourceType": "module"
