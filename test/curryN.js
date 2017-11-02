@@ -1,4 +1,4 @@
-const fluxi = require('../core')
+const fluxi = require('..');
 var assert = require('assert');
 describe('fluxi', function () {
     describe('curryN', function () {
