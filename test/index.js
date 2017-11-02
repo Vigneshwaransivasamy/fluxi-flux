@@ -1,9 +1,8 @@
-const flux = require('src');
+const createStore = require('../src/flux').createStore;
 var assert = require('assert');
 function compareObjLiteral(obj1, obj2){
 	return JSON.stringify(obj1) === JSON.stringify(obj2);
 }
-import {createStore} from '../index';
 
 /**
  * Action Types
@@ -81,8 +80,6 @@ var STATE_FROM_SERVER = {
   ]
 };
 
-
-
 // boundAddTodo('Learn about actions from bound functions');
 // store.dispatch(addTodo('Learn about reducers'));
 // store.dispatch(addTodo('Learn about store'));
@@ -91,22 +88,12 @@ var STATE_FROM_SERVER = {
 // unsubscribe();
 
 describe('Flux test cases begins...', function () {
-  describe('curryN', function () {
+  describe('Create store and check initial state', function () {
 
-    var store = createStore(todoApp, STATE_FROM_SERVER);
-
-    it('case 1: It should validate and return the\
-     boolean of initialState and stores state', function () {
-      
-      // Log the initial state
-      assert.equal(compareObjLiteral(store.getState(),initialState),true);
-      
-    });
-
-    it('case 2: it should return a function for first argument and while \
-    giving the next argument this should work like a charm', function () {
+    it('case 1: it should change the state object and should include the dispatched ', function () {
       var actionValue = 'Learn about actions';
       // Dispatch some actions
+      var store = createStore(todoApp, STATE_FROM_SERVER);
       store.dispatch(addTodo(actionValue));
       // Every time the state changes, log it
       // Note that subscribe() returns a function for unregistering the listener
