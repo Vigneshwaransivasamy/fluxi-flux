@@ -1,8 +1,8 @@
 {
-  "name": "flux",
+  "name": "fluxi-flux",
   "version": "0.0.1",
   "description": "Flux tries to implement the exact flux architectural pattern.",
-  "main": "src/index.js",
+  "main": "src/flux.js",
   "scripts": {
     "test": "mocha test",
     "build:es": "cross-env BABEL_ENV=es babel source --out-dir es",
