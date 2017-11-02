@@ -10,10 +10,10 @@ var banner = '//  Fluxi v' + pkg.version + '\n'
 
 var config = {
   entry: 'source/index.js',
-  dest: 'dist/fluxi.js',
+  dest: 'dist/flux.js',
   format: 'umd',
   sourceMap: 'inline',
-  name: 'fluxi',
+  name: 'flux',
   exports: 'named',
   banner: banner,
   plugins: [

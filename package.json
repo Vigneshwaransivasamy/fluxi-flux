@@ -1,7 +1,7 @@
 {
-  "name": "fluxi",
-  "version": "1.1.4",
-  "description": "A functional library which aids in building apps in functional paradigm",
+  "name": "flux",
+  "version": "0.0.1",
+  "description": "Flux tries to implement the exact flux architectural pattern.",
   "main": "src/index.js",
   "scripts": {
     "test": "mocha test",
@@ -13,13 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Vigneshwaransivasamy/fluxi.git"
+    "url": "git+https://github.com/Vigneshwaransivasamy/flux.git"
   },
   "keywords": [
-    "Functional",
-    "Programming",
-    "Utils",
-    "Library"
+    "Flux",
+    "Data flow architecture",
+    "Unidirectional data flow",
+    "Vanilla flux"
   ],
   "author": "Vigneshwaran Sivasamy",
   "license": "ISC",

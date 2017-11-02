@@ -13,7 +13,7 @@
  * For complete usage refer: test/index.js
  */
 
-var is = /*#__PURE__*/require('./is');
+var is = type => target => Object(target) instanceof type;
 
 function _hash(length) {
   var hash = '';
