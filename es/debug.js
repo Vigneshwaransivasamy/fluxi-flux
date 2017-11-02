@@ -1,13 +1,15 @@
-export default function debug(text, ...rest) {
-  if (window.performance) {
-    var now = (window.performance.now() / 1000).toFixed(3);
-    var log = ' : ' + now + ': ' + text;
-    var restLength = rest.length;
-    for (let i = 0; i < restLength; i++) {
-      log += ' : ' + rest[i];
-    }
-    console.log(log);
-  } else {
-    console.log(Date() + ' : ' + text);
+function buildLogs(rest) {
+  var log = [];
+  var restLength = rest.length;
+  let i = 0;
+  for (; i < restLength;) {
+    log.push(rest[i]);
+    i++;
   }
+  return log;
+}
+export default function debug(...rest) {
+  var logs = buildLogs(rest);
+  logs.splice(0, 0, window.performance ? ' : ' + (window.performance.now() / 1000).toFixed(3) + ': ' : ' : ' + Date() + ' : ');
+  console.log(...logs);
 }

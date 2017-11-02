@@ -4,7 +4,7 @@
  * @memberOf Fluxi
  * @dependOn fluxi
  * @author Vigneshwaran Sivasamy
- * @since v0.0.1
+ * @since v1.1.3
  * @param {*}
  * @return {Object}
  * @example
