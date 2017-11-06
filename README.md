@@ -1,17 +1,15 @@
 # fluxi-flux
 
-Flux tries to implement the exact flux architectural pattern
-
-
-
+flux-flux tries to implement the exact flux architectural pattern
 
 
 
 # How to use?
  
- ```
- import debug from 'fluxi';
+```
+import debug from 'fluxi';
 import {createStore} from '../index';
+ 
 /**
  * Action Types
  */
@@ -115,21 +113,4 @@ store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED));
 boundSetVisibilityFilter('Learn about store from bound visibility filter');
 unsubscribe();
 
- 
- // Now we have a function that will do the functionality
- // of the combination
- 
- let joinActions = pipeN(addOne, addTwo, addThree);
- 
- joinActions(1);
- 
- // how it works
- (1) addOne(1) => 2
-        |
- (2) addTwo(2) => 4
-        |
- (3) addThree(4) => 7
- 
- // @return 7
- 
 ```
