@@ -19,7 +19,9 @@
     "Flux",
     "Data flow architecture",
     "Unidirectional data flow",
-    "Vanilla flux"
+    "Vanilla flux",
+    "How to maintain unidirectional state?",
+    "State Management"
   ],
   "author": "Vigneshwaran Sivasamy",
   "license": "ISC",

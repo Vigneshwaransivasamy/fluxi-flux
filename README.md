@@ -1,24 +1,120 @@
-# fluxi
+# fluxi-flux
 
-A functional library which aids in building apps in functional paradigm
-
-<a href="https://nodei.co/npm/fluxi/"><img src="https://nodei.co/npm/fluxi.png"></a>
+Flux tries to implement the exact flux architectural pattern
 
 
-## Features
-
- # How it works?
- 
-It returns a function that makes call to the functions sequentially in the order of arguments and the return value of each function will become as argument for the forthcoming function.
 
 
- # How to use?
+
+
+# How to use?
  
  ```
- let pipeN = fluxi.pipeN;
- let addOne = x => x+1;
- let addTwo = x => x+2;
- let addThree = x => x+3;
+ import debug from 'fluxi';
+import {createStore} from '../index';
+/**
+ * Action Types
+ */
+
+var ADD_TODO = 'ADD_TODO';
+var SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
+var VisibilityFilters = {
+  SHOW_ALL: 'SHOW_ALL',
+  SHOW_COMPLETED: 'SHOW_COMPLETED',
+  SHOW_ACTIVE: 'SHOW_ACTIVE'
+};
+
+
+/**
+ * Action Creators
+ */
+
+function addTodo(text) {
+  return { type: ADD_TODO, text };
+}
+
+
+function setVisibilityFilter(filter) {
+  return { type: SET_VISIBILITY_FILTER, filter };
+}
+
+/**
+ * Bound Action Creators
+ */
+
+var boundAddTodo = text => store.dispatch(addTodo(text));
+var boundSetVisibilityFilter = index => store.dispatch(setVisibilityFilter(index));
+
+/**
+ * InitialState
+ */
+
+var initialState = {
+  visibilityFilter: VisibilityFilters.SHOW_ALL,
+  todos: []
+};
+
+
+
+/**
+ * Reducers
+ */
+
+function todoApp(state = initialState, action) {
+  switch (action.type) {
+  case SET_VISIBILITY_FILTER:
+    return Object.assign({}, state, {
+      visibilityFilter: action.filter
+    });
+  case ADD_TODO:
+    return Object.assign({}, state, {
+      todos: [
+        ...state.todos,
+        {
+          text: action.text,
+          completed: false
+        }
+      ]
+    });
+  default:
+    return state;
+  }
+}
+
+var STATE_FROM_SERVER = {
+  visibilityFilter: 'SHOW_ALL',
+  todos: [
+    {
+      text: 'Consider using Redux',
+      completed: true,
+    },
+    {
+      text: 'Keep all state in a single tree',
+      completed: false
+    }
+  ]
+};
+
+var store = createStore(todoApp, STATE_FROM_SERVER);
+
+// Log the initial state
+debug(store.getState());
+
+// Every time the state changes, log it
+// Note that subscribe() returns a function for unregistering the listener
+var unsubscribe = store.subscribe(() =>
+  debug(store.getState())
+);
+
+// Dispatch some actions
+store.dispatch(addTodo('Learn about actions'));
+boundAddTodo('Learn about actions from bound functions');
+store.dispatch(addTodo('Learn about reducers'));
+store.dispatch(addTodo('Learn about store'));
+store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED));
+boundSetVisibilityFilter('Learn about store from bound visibility filter');
+unsubscribe();
+
  
  // Now we have a function that will do the functionality
  // of the combination
@@ -37,34 +133,3 @@ It returns a function that makes call to the functions sequentially in the order
  // @return 7
  
 ```
-
-
- # How it works?
- 
-Asynchronous pipe will works exacly as you think
-         that this will wait for each action to get completed
-         
- # How to use?
- ```
- let syncPipeN = fluxi.pipeN;
- let delay = fluxi.delay;
- let delay500 = delay(500);
- let delay2000 = delay(2000);
- let delay5000 = delay(5000);
- 
- let joinActions = syncPipeN(delay500, delay2000, delay5000);
- 
- // Now we have a function that will do the functionality
- // of the combination and waits for each actions to get completed
- // sequentially
- 
- 
- // -> you can either just initate the action
- joinActions()  
- 
- // -> Add a listener to get the completed status
- joinActions().then(  
-      function(){
-      console.log("Completed!")
- });
- ```
