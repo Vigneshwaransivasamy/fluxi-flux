@@ -1,6 +1,7 @@
 # fluxi-flux  ![CircleCI Build Status](https://circleci.com/gh/Vigneshwaransivasamy/fluxi-flux.svg?style=shield)
 
 flux-flux tries to implement the exact flux architectural pattern
+
 <a href="https://nodei.co/npm/fluxi-flux/"><img src="https://nodei.co/npm/fluxi-flux.png"></a>
 
 
