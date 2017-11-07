@@ -1,4 +1,4 @@
-# fluxi-flux
+# fluxi-flux  ![CircleCI Build Status](https://circleci.com/gh/Vigneshwaransivasamy/fluxi-flux.svg?style=shield)
 
 flux-flux tries to implement the exact flux architectural pattern
 
